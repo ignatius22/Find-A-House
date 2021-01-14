@@ -31,6 +31,28 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 
+export const getUsers = (id) => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    },
+  };
+  try {
+    const res = await axios.get(`${baseUrl}/users/${id}`, config);
+    dispatch({
+      type: GET_USERS,
+      payload: res.data,
+    }, console.log(res.data));
+  } catch (err) {
+    dispatch({
+      type: HOUSES_ERROR,
+      payload: err,
+    });
+  }
+};
+
 // Register
 export const register = (userInfo) => async (dispatch) => {
   const config = {
