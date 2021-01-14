@@ -6,13 +6,14 @@ import {
   HOUSES_ERROR,
   ADD_HOUSE,
   GET_FAVORITES,
-  ADD_FAVORITES,
 } from './types';
+import { AUTH_FAIL } from './types';
 
 
 
+const baseUrl = 'https://enigmatic-dusk-17553.herokuapp.com';
 
-const baseUrl = 'http://localhost:3001';
+const setUser = (payload) => ({ type: 'SET_USER', payload });
 
 export const addHouses = (formData) => async (dispatch) => {
   const config = {
@@ -59,6 +60,30 @@ export const getHouses = () => async (dispatch) => {
   }
 };
 
+export const getFavorites = (id) => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    },
+  };
+  try {
+    const res = await axios.get(`${baseUrl}/users/${id}`, config);
+    localStorage.setItem('jwt', res.data);
+   dispatch({
+      type: GET_FAVORITES,
+      payload: res.data,
+    }, console.log(res.data));
+  } catch (err) {
+    dispatch({
+      type: HOUSES_ERROR,
+      payload: err,
+    });
+  }
+};
+
+
 export const getHouse = (id) => async (dispatch) => {
   const config = {
     headers: {
@@ -81,55 +106,6 @@ export const getHouse = (id) => async (dispatch) => {
   }
 };
 
-export const createFavorite = (user_id, house_id) => async (dispatch) => {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-    },
-    body: JSON.stringify({ user_id, house_id }),
-  };
-  try {
-    const res = await axios.get(`${baseUrl}/favorites`, config);
-    dispatch(
-      {
-        type: ADD_FAVORITES,
-        payload: res.data,
-      },
-      console.log(res.data)
-    );
-  } catch (err) {
-    dispatch({
-      type: HOUSES_ERROR,
-      payload: err,
-    });
-  }
-};
 
-export const getFavorite = (id) => async (dispatch) => {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-    },
-  };
-  try {
-    const res = await axios.get(`${baseUrl}/users/${id}`, config);
-    dispatch(
-      {
-        type: GET_FAVORITES,
-        payload: res.data,
-      },
-      console.log(res.data)
-    );
-  } catch (err) {
-    dispatch({
-      type: HOUSES_ERROR,
-      payload: err,
-    });
-  }
-};
 
 
