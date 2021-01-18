@@ -60,12 +60,12 @@ An App where you can view and add favourite houses to a list.
 	POST
 
 		/users - (create user account)
-		/favourites - (create favourites)
+		/add-houses - (create favourites)
 
 	GET
 
 		/houses - (fetch all houses)
-		/favourites - (fetch favourite houses)
+		
 
 
 ## Authors
