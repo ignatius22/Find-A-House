@@ -19,10 +19,15 @@ An App where you can view and add favourite houses to a list.
 
 ## Built With
 
-- React
-- Redux
-- Jest
-- Bootstrap
+ - ReactJs
+ -	React Hooks
+ -	Netlify (For deployment)
+ -	Jest
+ -	CSS (Modules)
+ -	Bootstrap
+ -	HTML
+ -	Webpack
+ -	ES6 JavaScript.
 
 
 ## Getting Started 
@@ -46,6 +51,21 @@ An App where you can view and add favourite houses to a list.
 -	Run npm start to start the development server.
 -	Your browser should open. Click on the dist folder to see the app.
 
+# About this project
+
+ - This Application is built as a front end app consuming a Ruby on Rails API separately     deployed to Heroku.
+
+# End Points
+
+	POST
+
+		/users - (create user account)
+		/favourites - (create favourites)
+
+	GET
+
+		/houses - (fetch all houses)
+		/favourites - (fetch favourite houses)
 
 
 ## Authors
