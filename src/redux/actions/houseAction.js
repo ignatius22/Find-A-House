@@ -7,7 +7,7 @@ import {
   ADD_HOUSE,
   GET_FAVORITES,
 } from './types';
-import { AUTH_FAIL } from './types';
+
 
 
 
@@ -60,7 +60,7 @@ export const getHouses = () => async (dispatch) => {
   }
 };
 
-export const getFavorites = (id) => async (dispatch) => {
+export const getFavorite = (id) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -70,7 +70,6 @@ export const getFavorites = (id) => async (dispatch) => {
   };
   try {
     const res = await axios.get(`${baseUrl}/users/${id}`, config);
-    localStorage.setItem('jwt', res.data);
    dispatch({
       type: GET_FAVORITES,
       payload: res.data,

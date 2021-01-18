@@ -9,7 +9,7 @@ import {
 const initialState = {
   houses: [],
   house: {},
-  favorites:[],
+  favorite:{},
   loading: false,
 };
 
@@ -45,7 +45,7 @@ export default function (state = initialState, action) {
     case GET_FAVORITES:
       return {
         ...state,
-        favorites: payload,
+        favorite: payload,
         loading: false,
       };
 

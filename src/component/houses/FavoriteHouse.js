@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react';
-import { getFavorites } from '../../redux/actions/houseAction';
+import { getFavorite } from '../../redux/actions/houseAction';
 import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const FavHouses = ({ getFavorites, favorites, match }) => {
+const FavHouses = ({ getFavorites, favorite, match }) => {
   const { id } = match.params;
 
   useEffect(() => {
     getFavorites(id);
-  }, [getFavorites, id]);
+  }, [ id]);
 
   return (
     <>
       <div class="container mt-5">
-        {favorites.name}
+        {favorite.name}
       </div>
     </>
   );
@@ -23,11 +23,11 @@ const FavHouses = ({ getFavorites, favorites, match }) => {
 
 FavHouses.propTypes = {
   getFavorites: PropTypes.func.isRequired,
-  favorites: PropTypes.shape([]).isRequired,
+  favorite: PropTypes.shape([]).isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  favorites: state.favorites.favorites,
+  favorite: state.favorite.favorite,
 });
 
-export default connect(mapStateToProps, { getFavorites })(withRouter(FavHouses));
+export default connect(mapStateToProps, { getFavorite })(withRouter(FavHouses));
