@@ -4,7 +4,7 @@ An App where you can view and add favourite houses to a list.
 
 ## Live demo
 
-[live demo](https://munch-it-pro.netlify.app/1)
+[live demo](https://compassionate-sammet-e894d7.netlify.app/)
 
 ## ScreenShot
 
