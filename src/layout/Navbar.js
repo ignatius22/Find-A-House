@@ -9,9 +9,6 @@ const Navbar = ({ auth: { loggedIn }, logout }) => (
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       {loggedIn === false ? (
         <div class="container">
-          <a class="navbar-brand" href="/">
-            Home
-          </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -24,6 +21,9 @@ const Navbar = ({ auth: { loggedIn }, logout }) => (
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
+            
+              <p className="mt-2 text-white font-weight-bold">Find your House</p>
+            
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <Link class="nav-link" to="/login">
