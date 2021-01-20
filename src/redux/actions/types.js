@@ -15,4 +15,3 @@ export const GET_HOUSE = 'GET_HOUSE';
 export const HOUSES_ERROR = 'HOUSES_ERROR';
 export const GET_FAVORITES = 'GET_FAVORITES';
 export const ADD_FAVORITES = 'ADD_FAVORITES';
-

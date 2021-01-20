@@ -1,34 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Houses from '../component/houses/Houses'
 import { connect } from 'react-redux';
-import Header from './Header'
+import Houses from '../component/houses/Houses';
+import Header from './Header';
 
-
-const Home = ({ auth: { user, loggedIn } }) => (
+const Home = ({ auth: { loggedIn } }) => (
   <div>
     {loggedIn === false ? (
       <>
         <Header />
-        </>
+      </>
     ) : (
-        <Houses />
+      <Houses />
     )}
-    
 
   </div>
 );
 
 Home.propTypes = {
   auth: PropTypes.shape({
+    loggedIn: PropTypes.bool.isRequired,
     user: PropTypes.shape({
       email: PropTypes.string.isRequired,
+
     }).isRequired,
   }).isRequired,
-  
+
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   auth: state.auth,
 });
 

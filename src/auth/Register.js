@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
+
+/* eslint-disable camelcase */
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { register } from '../redux/actions/authActions';
@@ -9,17 +11,16 @@ const Register = ({ register, authenticated: { loggedIn } }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    password_confirmation:''
+    password_confirmation: '',
   });
 
-  const { email, password,password_confirmation } = formData;
+  const { email, password, password_confirmation } = formData;
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async (e) => {
+  const onSubmit = async e => {
     e.preventDefault();
-    register({ email, password,password_confirmation });
+    register({ email, password, password_confirmation });
   };
 
   if (loggedIn) {
@@ -28,16 +29,18 @@ const Register = ({ register, authenticated: { loggedIn } }) => {
 
   return (
     <>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card">
-              <form class="box" onSubmit={onSubmit}>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <div className="card">
+              <form className="box" onSubmit={onSubmit}>
                 <h1>Sign Up</h1>
-                <p class="text-muted">
+                <p className="text-muted">
                   {' '}
                   Please enter your login and password!
-                </p>{' '}
+                </p>
+
+                {' '}
                 <input
                   type="text"
                   name="email"
@@ -53,7 +56,8 @@ const Register = ({ register, authenticated: { loggedIn } }) => {
                   value={password}
                   onChange={onChange}
                   required
-                />{' '}
+                />
+                {' '}
                 <input
                   type="password"
                   name="password_confirmation"
@@ -61,27 +65,30 @@ const Register = ({ register, authenticated: { loggedIn } }) => {
                   value={password_confirmation}
                   onChange={onChange}
                   required
-                />{' '}
-                <a class="forgot text-muted" href="#">
-                  Forgot password?
-                </a>
+                />
+                {' '}
+                <p className="forgot text-muted">Forgot password?</p>
                 <input type="submit" value="Sign Up" />
-                <div class="col-md-12">
-                  <ul class="social-network social-circle">
+                <div className="col-md-12">
+                  <ul className="social-network social-circle">
                     <li>
-                      <a href="#" class="icoFacebook" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                      </a>
+                      <Link
+                        to="/signup"
+                        className="icoFacebook"
+                        title="Facebook"
+                      >
+                        <i className="fab fa-facebook-f" />
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" class="icoTwitter" title="Twitter">
-                        <i class="fab fa-twitter"></i>
-                      </a>
+                      <Link to="/signup" className="icoTwitter" title="Twitter">
+                        <i className="fab fa-twitter" />
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" class="icoGoogle" title="Google +">
-                        <i class="fab fa-google-plus"></i>
-                      </a>
+                      <Link to="/signup" className="icoGoogle" title="Google +">
+                        <i className="fab fa-google-plus" />
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -101,7 +108,7 @@ Register.propTypes = {
   }).isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   authenticated: state.auth,
 });
 

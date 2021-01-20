@@ -3,13 +3,13 @@ import {
   GET_HOUSES,
   GET_HOUSE,
   GET_FAVORITES,
-  ADD_FAVORITES
+  ADD_FAVORITES,
 } from '../actions/types';
 
 const initialState = {
   houses: [],
   house: {},
-  favorite:{},
+  favorite: {},
   loading: false,
 };
 

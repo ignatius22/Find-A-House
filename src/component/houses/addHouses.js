@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { addHouses } from '../../redux/actions/houseAction';
 
-
 const AddHouse = ({ addHouses }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -16,10 +15,9 @@ const AddHouse = ({ addHouses }) => {
 
   const history = useHistory();
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async (e) => {
+  const onSubmit = async e => {
     e.preventDefault();
     addHouses({
       name,
@@ -92,11 +90,11 @@ const AddHouse = ({ addHouses }) => {
 };
 
 AddHouse.propTypes = {
-  addHouse: PropTypes.func.isRequired,
+  addHouses: PropTypes.func.isRequired,
   house: PropTypes.shape({}).isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   house: state.houses.house,
 });
 

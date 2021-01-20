@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { login } from '../redux/actions/authActions';
@@ -12,10 +12,9 @@ const Login = ({ login, authenticated: { loggedIn } }) => {
 
   const { email, password } = formData;
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async (e) => {
+  const onSubmit = async e => {
     e.preventDefault();
     login({ email, password });
   };
@@ -26,38 +25,40 @@ const Login = ({ login, authenticated: { loggedIn } }) => {
 
   return (
     <div>
-      <div class="container shadow bg-white">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card">
-              <form class="box" onSubmit={onSubmit}>
+      <div className="container shadow bg-white">
+        <div className="row">
+          <div className="col-md-6">
+            <div className="card">
+              <form className="box" onSubmit={onSubmit}>
                 <h1>Login</h1>
-                <p class="text-muted">
+                <p className="text-muted">
                   {' '}
                   Please enter your login and password!
-                </p>{' '}
-                <input type="text" name="email" placeholder="enter email" value={email} onChange={ onChange} required/>
-                <input type="password" name="password" placeholder="enter Password" value={password} onChange={ onChange} required/>{' '}
-                <a class="forgot text-muted" href="#">
+                </p>
+                {' '}
+                <input type="text" name="email" placeholder="enter email" value={email} onChange={onChange} required />
+                <input type="password" name="password" placeholder="enter Password" value={password} onChange={onChange} required />
+                {' '}
+                <p className="forgot text-muted">
                   Forgot password?
-                </a>
+                </p>
                 <input type="submit" value="Login" />
-                <div class="col-md-12">
-                  <ul class="social-network social-circle">
+                <div className="col-md-12">
+                  <ul className="social-network social-circle">
                     <li>
-                      <a href="#" class="icoFacebook" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                      </a>
+                      <Link to="/login" className="icoFacebook" title="Facebook">
+                        <i className="fab fa-facebook-f" />
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" class="icoTwitter" title="Twitter">
-                        <i class="fab fa-twitter"></i>
-                      </a>
+                      <Link to="/login" className="icoTwitter" title="Twitter">
+                        <i className="fab fa-twitter" />
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" class="icoGoogle" title="Google +">
-                        <i class="fab fa-google-plus"></i>
-                      </a>
+                      <Link to="/login" className="icoGoogle" title="Google +">
+                        <i className="fab fa-google-plus" />
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -77,7 +78,7 @@ Login.propTypes = {
   }).isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   authenticated: state.auth,
 });
 

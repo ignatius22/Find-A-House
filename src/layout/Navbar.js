@@ -1,16 +1,16 @@
-import React from 'react'
+import React from 'react';
 import { connect } from 'react-redux';
-import { logout } from '../redux/actions/authActions';
 import { Link } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
+import { logout } from '../redux/actions/authActions';
 
 const Navbar = ({ auth: { loggedIn }, logout }) => (
   <>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       {loggedIn === false ? (
-        <div class="container">
+        <div className="container">
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target="#navbarResponsive"
@@ -18,19 +18,19 @@ const Navbar = ({ auth: { loggedIn }, logout }) => (
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon" />
           </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            
-              <p className="mt-2 text-white font-weight-bold">Find your House</p>
-            
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
+          <div className="collapse navbar-collapse" id="navbarResponsive">
+
+            <p className="mt-2 text-white font-weight-bold">Find your House</p>
+
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
                 <Link class="nav-link" to="/login">
                   Login
                 </Link>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <Link class="nav-link" to="/signup">
                   Signup
                 </Link>
@@ -40,24 +40,24 @@ const Navbar = ({ auth: { loggedIn }, logout }) => (
         </div>
       ) : (
         <>
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
               <Link class="nav-link" to="/houses">
                 Houses
-                <span class="sr-only">(current)</span>
+                <span className="sr-only">(current)</span>
               </Link>
             </li>
           </ul>
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
               <Link class="nav-link" to="/add-houses">
                 Add Houses
-                <span class="sr-only">(current)</span>
+                <span className="sr-only">(current)</span>
               </Link>
             </li>
           </ul>
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
               <Link class="nav-link" to="/" onClick={logout}>
                 Logout
               </Link>
@@ -68,10 +68,15 @@ const Navbar = ({ auth: { loggedIn }, logout }) => (
     </nav>
   </>
 );
-   
-const mapStateToProps = (state) => ({
+
+Navbar.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.func.isRequired,
+
+};
+
+const mapStateToProps = state => ({
   auth: state.auth,
 });
 
-
-export default connect(mapStateToProps, {logout})( Navbar)
+export default connect(mapStateToProps, { logout })(Navbar);

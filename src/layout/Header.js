@@ -1,31 +1,31 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Header() {
-	return (
+  return (
     <>
       <div
         id="carouselExampleCaptions"
-        class="carousel slide"
+        className="carousel slide"
         data-ride="carousel"
       >
-        <ol class="carousel-indicators">
+        <ol className="carousel-indicators">
           <li
             data-target="#carouselExampleCaptions"
             data-slide-to="0"
-            class="active"
-          ></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            className="active"
+          />
+          <li data-target="#carouselExampleCaptions" data-slide-to="1" />
+          <li data-target="#carouselExampleCaptions" data-slide-to="2" />
         </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
             <img
               src="https://cdn.pixabay.com/photo/2015/03/26/09/41/condominium-690086_960_720.jpg"
-              class="d-block w-100"
+              className="d-block w-100"
               alt="..."
             />
-            <div class="carousel-caption d-none d-md-block  tc">
+            <div className="carousel-caption d-none d-md-block  tc">
               <h5 className="display-1 text-warning font-weight-bold">
                 Find Your House
               </h5>
@@ -41,24 +41,24 @@ function Header() {
               </Link>
             </div>
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <img
               src="https://cdn.pixabay.com/photo/2019/03/08/20/14/kitchen-living-room-4043091_960_720.jpg"
-              class="d-block w-100"
+              className="d-block w-100"
               alt="..."
             />
-            <div class="carousel-caption d-none d-md-block tc">
+            <div className="carousel-caption d-none d-md-block tc">
               <h5>Second slide label</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <img
               src="https://cdn.pixabay.com/photo/2017/08/06/09/10/dark-2590544_960_720.jpg"
-              class="d-block w-100"
+              className="d-block w-100"
               alt="..."
             />
-            <div class="carousel-caption d-none d-md-block tc">
+            <div className="carousel-caption d-none d-md-block tc">
               <h5>Third slide label</h5>
               <p>
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
@@ -67,26 +67,26 @@ function Header() {
           </div>
         </div>
         <a
-          class="carousel-control-prev"
+          className="carousel-control-prev"
           href="#carouselExampleCaptions"
           role="button"
           data-slide="prev"
         >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
+          <span className="carousel-control-prev-icon" aria-hidden="true" />
+          <span className="sr-only">Previous</span>
         </a>
         <a
-          class="carousel-control-next"
+          className="carousel-control-next"
           href="#carouselExampleCaptions"
           role="button"
           data-slide="next"
         >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
+          <span className="carousel-control-next-icon" aria-hidden="true" />
+          <span className="sr-only">Next</span>
         </a>
       </div>
     </>
   );
 }
 
-export default Header
+export default Header;

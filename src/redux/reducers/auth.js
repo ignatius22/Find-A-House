@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 
+/* eslint-disable func-names */
 const initialState = {
   loggedIn: false,
   user: {},

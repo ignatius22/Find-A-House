@@ -8,14 +8,9 @@ import {
   GET_FAVORITES,
 } from './types';
 
-
-
-
 const baseUrl = 'https://enigmatic-dusk-17553.herokuapp.com';
 
-const setUser = (payload) => ({ type: 'SET_USER', payload });
-
-export const addHouses = (formData) => async (dispatch) => {
+export const addHouses = formData => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -37,8 +32,7 @@ export const addHouses = (formData) => async (dispatch) => {
   }
 };
 
-
-export const getHouses = () => async (dispatch) => {
+export const getHouses = () => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -60,7 +54,7 @@ export const getHouses = () => async (dispatch) => {
   }
 };
 
-export const getFavorite = (id) => async (dispatch) => {
+export const getFavorite = id => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -70,10 +64,10 @@ export const getFavorite = (id) => async (dispatch) => {
   };
   try {
     const res = await axios.get(`${baseUrl}/users/${id}`, config);
-   dispatch({
+    dispatch({
       type: GET_FAVORITES,
       payload: res.data,
-    }, console.log(res.data));
+    });
   } catch (err) {
     dispatch({
       type: HOUSES_ERROR,
@@ -82,13 +76,12 @@ export const getFavorite = (id) => async (dispatch) => {
   }
 };
 
-
-export const getHouse = (id) => async (dispatch) => {
+export const getHouse = id => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+      Accept: 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
     },
   };
   try {
@@ -96,7 +89,7 @@ export const getHouse = (id) => async (dispatch) => {
     dispatch({
       type: GET_HOUSE,
       payload: res.data,
-    }, console.log(res.data));
+    });
   } catch (err) {
     dispatch({
       type: HOUSES_ERROR,
@@ -104,7 +97,3 @@ export const getHouse = (id) => async (dispatch) => {
     });
   }
 };
-
-
-
-

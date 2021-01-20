@@ -5,10 +5,10 @@ import setAuthToken from '../../utils/setAuthToken';
 
 const baseUrl = 'https://enigmatic-dusk-17553.herokuapp.com';
 
-const setUser = (payload) => ({ type: 'SET_USER', payload });
+const setUser = payload => ({ type: 'SET_USER', payload });
 
 // Load user
-export const loadUser = () => async (dispatch) => {
+export const loadUser = () => async dispatch => {
   if (localStorage.jwt) {
     setAuthToken(localStorage.jwt);
   }
@@ -31,9 +31,8 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 
-
 // Register
-export const register = (userInfo) => async (dispatch) => {
+export const register = userInfo => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -46,7 +45,7 @@ export const register = (userInfo) => async (dispatch) => {
   try {
     const res = await axios.post(`${baseUrl}/registrations`, userInfo, config);
     localStorage.setItem('jwt', res.data.jwt);
-    
+
     dispatch(setUser(res.data.user));
   } catch (err) {
     dispatch({
@@ -57,7 +56,7 @@ export const register = (userInfo) => async (dispatch) => {
 };
 
 // Login
-export const login = (userInfo) => async (dispatch) => {
+export const login = userInfo => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -71,7 +70,6 @@ export const login = (userInfo) => async (dispatch) => {
     const res = await axios.post(`${baseUrl}/login`, userInfo, config);
     localStorage.setItem('jwt', res.data.jwt);
     dispatch(setUser(res.data.user));
-
   } catch (err) {
     dispatch({
       type: AUTH_FAIL,

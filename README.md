@@ -81,7 +81,7 @@ An App where you can view and add favourite houses to a list.
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the <a href="https://github.com/ignatius22/redux-capstone/issues" target="_blank">issues page</a>.
+Feel free to check the <a href="https://github.com/ignatius22/Find-A-House/issues" target="_blank">issues page</a>.
 
 ## Show your support
 

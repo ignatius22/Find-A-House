@@ -1,163 +1,139 @@
-import React, {useEffect} from 'react'
-import { getHouses} from '../../redux/actions/houseAction'
+import React, { useEffect } from 'react';
 // import { getHouses } from '../redux/actions/houseAction';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { getHouses } from '../../redux/actions/houseAction';
 
 const Houses = ({ getHouses, houses }) => {
-  
   useEffect(() => {
     getHouses();
-    
   }, [getHouses]);
-
-
 
   return (
     <>
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-lg-3">
-            <h1 class="my-4">Favorite House</h1>
-            
-            <div class="list-group">
-              <a href="#" class="list-group-item">
-                Category 1
-              </a>
-              <a href="#" class="list-group-item">
-                Category 2
-              </a>
-              <a href="#" class="list-group-item">
-                Category 3
-              </a>
-            </div>
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-lg-3">
+            <h1 className="my-4">Favorite House</h1>
           </div>
 
-          <div class="col-lg-9">
+          <div className="col-lg-9">
             <div
               id="carouselExampleIndicators"
-              class="carousel slide my-4"
+              className="carousel slide my-4"
               data-ride="carousel"
             >
-              <ol class="carousel-indicators">
+              <ol className="carousel-indicators">
                 <li
                   data-target="#carouselExampleIndicators"
                   data-slide-to="0"
-                  class="active"
-                ></li>
+                  className="active"
+                />
                 <li
                   data-target="#carouselExampleIndicators"
                   data-slide-to="1"
-                ></li>
+                />
                 <li
                   data-target="#carouselExampleIndicators"
                   data-slide-to="2"
-                ></li>
+                />
               </ol>
-              <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
+              <div className="carousel-inner" role="listbox">
+                <div className="carousel-item active">
                   <img
-                    class="d-block img-fluid"
+                    className="d-block img-fluid"
                     src="https://cdn.pixabay.com/photo/2015/03/26/09/41/condominium-690086_960_720.jpg"
                     style={{ height: 350, width: 900 }}
                     alt="First slide"
                   />
                 </div>
-                <div class="carousel-item">
+                <div className="carousel-item">
                   <img
-                    class="d-block img-fluid"
+                    className="d-block img-fluid"
                     src="https://cdn.pixabay.com/photo/2017/08/06/09/10/dark-2590544_960_720.jpg"
                     style={{ height: 350, width: 900 }}
                     alt="Second slide"
                   />
                 </div>
-                <div class="carousel-item">
+                <div className="carousel-item">
                   <img
-                    class="d-block img-fluid"
+                    className="d-block img-fluid"
                     src="https://cdn.pixabay.com/photo/2019/03/08/20/14/kitchen-living-room-4043091_960_720.jpg"
                     style={{ height: 350, width: 900 }}
                     alt="Third slide"
                   />
                 </div>
               </div>
-              <a
-                class="carousel-control-prev"
-                href="#carouselExampleIndicators"
+              <Link
+                className="carousel-control-prev"
+                to="#carouselExampleIndicators"
                 role="button"
                 data-slide="prev"
               >
                 <span
-                  class="carousel-control-prev-icon"
+                  className="carousel-control-prev-icon"
                   aria-hidden="true"
-                ></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a
-                class="carousel-control-next"
-                href="#carouselExampleIndicators"
+                />
+                <span className="sr-only">Previous</span>
+              </Link>
+              <Link
+                className="carousel-control-next"
+                to="#carouselExampleIndicators"
                 role="button"
                 data-slide="next"
               >
                 <span
-                  class="carousel-control-next-icon"
+                  className="carousel-control-next-icon"
                   aria-hidden="true"
-                ></span>
-                <span class="sr-only">Next</span>
-              </a>
+                />
+                <span className="sr-only">Next</span>
+              </Link>
             </div>
 
-            <div class="row">
-              {houses.map((house) => {
-                return (
-                  <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                      <a href="#">
-                        <img
-                          class="card-img-top"
-                          src={house.image_url}
-                          alt=""
-                        />
-                      </a>
-                      <div class="card-body">
-                        <h4 class="card-title">
-                          <a href="#">{house.name}</a>
-                        </h4>
-                        <h5>$24.99</h5>
-                        <p class="card-text">{house.description}</p>
-                      </div>
-                      <div class="card-footer">
-                        <Link
-                          to={{ pathname: `/houses/${house.id}` }}
-                          className="btn custom-button"
-                        >
-                          View House
-                        </Link>
-                      </div>
+            <div className="row">
+              {houses.map((i, house) => (
+                <div className="col-lg-4 col-md-6 mb-4" key={i}>
+                  <div className="card h-100">
+                    <img
+                      className="card-img-top"
+                      src={house.image_url}
+                      alt="house"
+                    />
+
+                    <div className="card-body">
+                      <h4 className="card-title">{house.name}</h4>
+                      <h5>$24.99</h5>
+                      <p className="card-text">{house.description}</p>
+                    </div>
+                    <div className="card-footer">
+                      <Link
+                        to={{ pathname: `/houses/${house.id}` }}
+                        classNameName="btn custom-button"
+                      >
+                        View House
+                      </Link>
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </>
   );
-}
-
+};
 
 Houses.propTypes = {
   getHouses: PropTypes.func.isRequired,
   houses: PropTypes.shape([]).isRequired,
- 
+
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   houses: state.houses.houses,
-  
+
 });
 
-
-
-export default connect(mapStateToProps, {getHouses}) ( Houses)
+export default connect(mapStateToProps, { getHouses })(Houses);
