@@ -34,8 +34,6 @@ code {
     monospace;
 }
 
-
-
 .err-cont {
   position: absolute;
   top: 10px;
@@ -58,8 +56,6 @@ code {
   font-size: 24px;
 }
 
-
-
 .logo-header {
   color: white;
   font-size: 40px;
@@ -67,21 +63,19 @@ code {
   width: 180px;
 }
 
-
-
-.center{
+.center {
   margin-left: 140px;
 }
 
-
-.crd{
-   width: 320px;
-    height: 320px;
+.crd {
+  width: 320px;
+  height: 320px;
 }
 
-.top{
-margin-top: 150px;
+.top {
+  margin-top: 150px;
 }
+
 .para-fav {
   padding: 50px;
   margin-top: 250px;
