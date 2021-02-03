@@ -1,3 +1,5 @@
+/* eslint-disable  camelcase */
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -12,7 +14,7 @@ const Registration = props => {
   const [state, setState] = useState({
     email: '',
     password: '',
-    passwordConfirmation: '',
+    password_confirmation: '',
   });
 
   if (localStorage.getItem('token')) {
@@ -23,21 +25,17 @@ const Registration = props => {
     setState({ ...state, [name]: value });
   };
 
-  const {
-    email,
-    password,
-    passwordConfirmation,
-  } = state;
+  const { email, password, password_confirmation } = state;
 
   const handleSubmit = event => {
     const incpass = document.getElementById('incpass');
-    if (password !== passwordConfirmation) {
+    if (password !== password_confirmation) {
       incpass.innerHTML = 'Password is not matching';
     } else {
       axios.post(`${API_ID}${API_REGISTRATION}`, {
         email,
         password,
-        password_confirmation: passwordConfirmation,
+        password_confirmation,
       },
       { withCredentials: true })
         .then(res => {

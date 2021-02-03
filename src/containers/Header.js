@@ -35,7 +35,7 @@ function Header() {
                 right place.
               </p>
 
-              <Link className="btn btn-primary btn-lg mt-5" to="/login">
+              <Link className="btn btn-primary btn-lg mt-5 mr-2" to="/login">
                 Sign In
               </Link>
               <Link className="btn btn-primary btn-lg mt-5" to="/signup">
@@ -52,7 +52,7 @@ function Header() {
             <div className="carousel-caption d-none d-md-block tc">
               <h5>Second slide label</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <Link className="btn btn-primary btn-lg mt-5" to="/login">
+              <Link className="btn btn-primary btn-lg mt-5 mr-2" to="/login">
                 Sign In
               </Link>
               <Link className="btn btn-primary btn-lg mt-5" to="/signup">
@@ -71,7 +71,7 @@ function Header() {
               <p>
                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
               </p>
-              <Link className="btn btn-primary btn-lg mt-5" to="/login">
+              <Link className="btn-primary btn-lg mt-5 mr-2" to="/login">
                 Sign In
               </Link>
               <Link className="btn btn-primary btn-lg mt-5" to="/signup">
