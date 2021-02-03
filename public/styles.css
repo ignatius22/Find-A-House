@@ -2,8 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: linear-gradient(to right, #b92b27, #1565c0);
-  background-image: url('https://cdn.pixabay.com/photo/2018/02/08/15/32/home-3139685_960_720.jpg');
+  background: linear-gradient(to right, #fc7570, #3c91f1);
   background-size: cover;
 }
 

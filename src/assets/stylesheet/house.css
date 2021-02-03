@@ -1,0 +1,13 @@
+.house-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.last {
+  margin-top: 20px;
+}
+
+.house {
+  display: flex;
+  flex-wrap: wrap;
+}
