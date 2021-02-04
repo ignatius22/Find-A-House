@@ -64,7 +64,7 @@ An App where you can view and add favourite houses to a list.
 		/login - (Log user in)
 
 	GET
-		/					- (Homepage)
+		/	- (Homepage)
 		/dashboard - (List houses)
 		/dashboard/:id/:name - (Get house details)
 		/favourite - (List favorite houses)
