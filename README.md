@@ -4,7 +4,7 @@ An App where you can view and add favourite houses to a list.
 
 ## Live demo
 
-[live demo](https://relaxed-agnesi-6c20fd.netlify.app/)
+[live demo](https://find-your-house-now.netlify.app)
 
 ## ScreenShot
 
