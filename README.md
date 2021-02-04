@@ -8,14 +8,15 @@ An App where you can view and add favourite houses to a list.
 
 ## ScreenShot
 
-- Homepage
-![alt text](./src/img/homepage.png)
 
 - Houses List
-![alt text](./src/img/Houses-list.png)
+![alt text](./src/assets/img/home.png)
 
-- House Detail
-![alt text](./src/img/house-detail.png)
+- Favorites
+![alt text](./src/assets/img/favorite.png)
+
+- House detail
+![alt text](./src/assets/img/detail.png)
 
 ## Built With
 
