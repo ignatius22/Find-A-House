@@ -56,7 +56,7 @@ const Favourite = props => {
         </div>
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
-            <Link class="nav-link btn btn-primary" to="/dashboard">
+            <Link className="nav-link btn btn-primary" to="/dashboard">
               Go to Houses
               <span className="sr-only">(current)</span>
             </Link>

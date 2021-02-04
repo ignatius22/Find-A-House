@@ -57,7 +57,7 @@ const Dashboard = props => {
         <h1 className="text-white">Houses</h1>
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
-            <Link class="nav-link btn-small btn-primary" to="/favourite">
+            <Link className="nav-link btn-small btn-primary" to="/favourite">
               Go to Favourite
               <span className="sr-only">(current)</span>
             </Link>

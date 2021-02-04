@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './reducers/index';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './components/App';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root'),
 );
